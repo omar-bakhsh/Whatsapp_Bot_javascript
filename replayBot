@@ -1,0 +1,6 @@
+var items =document.querySelectorAll(".copyable-text")[0];
+ // var myTypedText = items[items.length-1];
+ // receved text 
+  var resive = items[items.length-2].text;
+  // msg length 
+  var msg_length = resive.textContent.length
