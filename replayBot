@@ -1,6 +1,29 @@
-var items =document.querySelectorAll(".copyable-text")[0];
+window.InputEvent = window.Event || window.InputEvent;
+var event = new InputEvent('input', {bubbles: true});
+
+var textbox = document.querySelector("#main > footer > div.vR1LG._3wXwX.copyable-area > div._2A8P4 > div > div._2_1wd.copyable-text.selectable-text")
+function replay (e){ 
+textbox.innerHTML = e ;
+textbox.dispatchEvent(event);
+document.getElementsByClassName("_1E0Oz")[0].click() ; }
+
+var items;
+ var resive;
+  var msg_length;
+var open=1;
+setInterval(function(){
+ items =document.querySelectorAll(".copyable-text");
  // var myTypedText = items[items.length-1];
- // receved text 
-  var resive = items[items.length-2].text;
-  // msg length 
-  var msg_length = resive.textContent.length
+ // receved text
+  resive = items[items.length-2];
+  // msg length
+  msg_length = resive.textContent.length;
+
+ if (resive.textContent == "السلام عليكم" && items[items.length-5] != "السلام عليكم" && items[items.length-8] != "السلام عليكم" && open==1){
+open=0;
+   replay("وعليكم السلام");
+  }else if (resive.textContent == "hi" && items[items.length-5] != "hi" && items[items.length-8] != "hi"&& open==1){
+open=0;
+    replay("hello");
+  }
+},5000)
