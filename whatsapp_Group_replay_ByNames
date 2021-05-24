@@ -1,0 +1,42 @@
+window.InputEvent = window.Event || window.InputEvent;
+var event = new InputEvent('input', {
+    bubbles: true
+});
+
+var textbox = document.querySelector("#main > footer > div.vR1LG._3wXwX.copyable-area > div._2A8P4 > div > div._2_1wd.copyable-text.selectable-text")
+
+function replay(e) {
+    textbox.innerHTML = e;
+    textbox.dispatchEvent(event);
+    document.getElementsByClassName("_1E0Oz")[0].click();
+}
+
+var items;
+var resive;
+var msg_length;
+var open = 1;
+setInterval(function() {
+    items = document.querySelectorAll(".copyable-text");
+    // var myTypedText = items[items.length-1];
+    // receved text
+    resive = items[items.length - 2];
+    // msg length
+    msg_length = resive.textContent.length;
+    var last_msg = document.querySelectorAll("._1Lc2C");
+    if (last_msg.[last_msg.length - 1].textContent == "عماد سوا" && open == 1) {
+        open = 0;
+        replay("كويس");
+    } else if (last_msg.[last_msg.length - 1].textContent == "ويسوو Wesoo" && open == 1) {
+        open = 0;
+        replay("شغال");
+    } else if (last_msg.[last_msg.length - 1].textContent == "حبي باكستان" && open == 1) {
+        open = 0;
+        replay("اصلي عليك");
+    } else if (last_msg.[last_msg.length - 1].textContent == "محمد دبا" && open == 1) {
+        open = 0;
+        replay("ههه");
+    } else if (last_msg.[last_msg.length - 1].textContent == "وابي" && open == 1) {
+        open = 0;
+        replay("احلف 10 مرات طيب");
+    }
+}, 5000)
