@@ -23,19 +23,21 @@ setInterval(function() {
     // msg length
     msg_length = resive.textContent.length;
     var last_msg = document.querySelectorAll("._1Lc2C");
-    if (last_msg.[last_msg.length - 1].textContent == "عماد سوا" && open == 1) {
+    // group content Names 
+let nameA="عماد سوا",nameB="ويسوو Wesoo",nameC="حبي باكستان",nameD="محمد دبا",nameE="وابي";
+    if (last_msg[last_msg.length - 1].textContent == nameA && open == 1) {
         open = 0;
         replay("كويس");
-    } else if (last_msg.[last_msg.length - 1].textContent == "ويسوو Wesoo" && open == 1) {
+    } else if (last_msg[last_msg.length - 1].textContent ==nameB  && open == 1) {
         open = 0;
         replay("شغال");
-    } else if (last_msg.[last_msg.length - 1].textContent == "حبي باكستان" && open == 1) {
+    } else if (last_msg[last_msg.length - 1].textContent ==nameC  && open == 1) {
         open = 0;
         replay("اصلي عليك");
-    } else if (last_msg.[last_msg.length - 1].textContent == "محمد دبا" && open == 1) {
+    } else if (last_msg[last_msg.length - 1].textContent ==nameD  && open == 1) {
         open = 0;
         replay("ههه");
-    } else if (last_msg.[last_msg.length - 1].textContent == "وابي" && open == 1) {
+    } else if (last_msg[last_msg.length - 1].textContent == nameE && open == 1) {
         open = 0;
         replay("احلف 10 مرات طيب");
     }
