@@ -25,6 +25,14 @@ setInterval(function() {
     var last_msg = document.querySelectorAll("._1Lc2C");
     // group content Names 
 let nameA="عماد سوا",nameB="ويسوو Wesoo",nameC="حبي باكستان",nameD="محمد دبا",nameE="وابي";
+/* OR USER INPUT NAMES 
+let nameA=prompt("Please enter user A name", "عماد سوا"),
+nameB=prompt("Please enter user B name", "ويسوو Wesoo"),
+nameC=prompt("Please enter user C name", "حبي باكستان"),
+nameD=prompt("Please enter user D name", "محمد دبا"),
+nameE=prompt("Please enter user D name", "وابي");
+.addEventListener('change', updateValue); #
+*/
     if (last_msg[last_msg.length - 1].textContent == nameA && open == 1) {
         open = 0;
         replay("كويس");
