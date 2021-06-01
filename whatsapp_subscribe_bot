@@ -1,0 +1,143 @@
+const toggleAttach = (e) => {
+    // select the span with reliable identification like data-*
+    const clipNode = document.querySelectorAll('.TbtXF')[e];
+    // take its element, i.e. the button itself
+    const clipButtonNode = clipNode.parentNode;
+    // extract the current offset position relative to the document
+    // more info here https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect
+    // we can use this for filling in the non-0 screenX and screenY
+    const clipButtonNodeClientRect = clipButtonNode.getBoundingClientRect();
+
+    clipButtonNode.dispatchEvent(new MouseEvent("mousedown", {
+        bubbles: true,
+        cancelable: true,
+        screenX: clipButtonNodeClientRect.x,
+        screenY: clipButtonNodeClientRect.y
+    }));
+}
+
+var start = 0;
+var go = true;
+var subs = [
+
+];
+
+
+
+setInterval(() => {
+
+
+    document.querySelectorAll('.TbtXF').forEach((e, i) => {
+        if ((e.innerHTML.includes('رسالة ١ غير مقروءة') || e.innerHTML.includes('رسالتان ٢ غير مقروءتين') || e.innerHTML.includes('رسائل غير مقروءة')) && go) {
+            toggleAttach(i)
+            go = false;
+
+        }
+    });
+    setTimeout(() => {
+        var Messages = document.getElementsByClassName("GDTQm")
+        var lastMessage = Messages[Messages.length - 1]
+
+        go = true;
+
+
+
+
+        if (!lastMessage.classList.contains('message-out')) {
+            if (lastMessage.innerHTML.includes('🌹')) {
+                var event = new InputEvent('input', { bubbles: true });
+
+                var textbox = document.querySelector("#main > footer > div.vR1LG._3wXwX.copyable-area > div._2A8P4 > div > div._2_1wd.copyable-text.selectable-text")
+
+                textbox.innerHTML = '🌹🌹🌹';
+
+                textbox.dispatchEvent(event);
+                document.getElementsByClassName("_1E0Oz")[0].click();
+
+            }
+
+
+
+            if (lastMessage.innerHTML.includes('السلام عليكم')) {
+                var event = new InputEvent('input', { bubbles: true });
+
+                var textbox = document.querySelector("#main > footer > div.vR1LG._3wXwX.copyable-area > div._2A8P4 > div > div._2_1wd.copyable-text.selectable-text")
+
+                textbox.innerHTML = 'وعليكم السلام ورحمة الله وبركاته';
+
+                textbox.dispatchEvent(event);
+                docu
+                document.getElementsByClassName("_1E0Oz")[0].click();
+            }
+
+
+
+            if (lastMessage.innerHTML.includes('اسمي:')) {
+                sendername = document.querySelector("header div ._35k-1._1adfa._3-8er").innerText;
+                var index = subs.findIndex(x => x.sender == sendername);
+                console.log(index)
+                console.log( lastMessage.innerHTML)
+                console.log(index !== -1 )
+
+
+                if (  index !== -1 ) {
+                  var  name =  lastMessage.querySelector("._3-8er.selectable-text.copyable-text span").innerText.split(':');
+                  subs[index].name = name[1];
+
+
+                  var event = new InputEvent('input', { bubbles: true });
+                  var textbox = document.querySelector("#main > footer > div.vR1LG._3wXwX.copyable-area > div._2A8P4 > div > div._2_1wd.copyable-text.selectable-text")
+                  textbox.innerHTML = " اسمك في السجل " + sendername + "اسم حساب الاشتراك هو " + subs[index].name;
+                  textbox.dispatchEvent(event);
+                  document.getElementsByClassName("_1E0Oz")[0].click();
+                }
+                
+            }
+
+
+
+
+            if (lastMessage.innerHTML.includes('اشتراك')) {
+
+                var messageSend = 'يا اهلا وسهلا'
+                var event = new InputEvent('input', { bubbles: true });
+
+                var textbox = document.querySelector("#main > footer > div.vR1LG._3wXwX.copyable-area > div._2A8P4 > div > div._2_1wd.copyable-text.selectable-text")
+
+
+                var index = subs.findIndex(x => x.sender == document.querySelector("header div ._35k-1._1adfa._3-8er").innerText);
+                // here you can check specific property for an object whether it exist in your array or not
+                sendername = document.querySelector("header div ._35k-1._1adfa._3-8er").innerText;
+                index === -1 ? subs[subs.length] = { sender: sendername, name: "" } : messageSend = 'انت مسجل من اول '
+
+                var index = subs.findIndex(x => x.sender == document.querySelector("header div ._35k-1._1adfa._3-8er").innerText);
+
+
+
+
+                textbox.innerHTML = messageSend;
+
+                textbox.dispatchEvent(event);
+                document.getElementsByClassName("_1E0Oz")[0].click();
+                
+
+                setTimeout(() => {
+                    if (subs[index].name == "") {
+                        textbox.innerHTML = `ارسل اسمك بهذا الرابط
+                        https://api.whatsapp.com/send?phone=966564364261&text=%D8%A7%D8%B3%D9%85%D9%8A:`;
+
+                        textbox.dispatchEvent(event);
+                        document.getElementsByClassName("_1E0Oz")[0].click();
+                    }
+                }, 1000);
+
+
+            }
+            go = true;
+
+        }
+
+
+    }, 2000);
+
+}, 6000);
