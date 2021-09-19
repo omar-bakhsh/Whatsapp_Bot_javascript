@@ -1,0 +1,23 @@
+<script>
+// github: omar-bakhsh
+function send_handle(){
+
+  let num=document.getElementById("number").value;
+
+  let msg= document.getElementById("msg").value;
+
+    let name= document.getElementById("name").value;
+  
+  var win = window.open(`https://wa.me/${num}?text=I%27m%20api%20msg%20hello%20${name}%20friend%20${msg}`, '_blank');
+ // win.focus();
+}
+</script>
+
+
+        <div>
+          <h3>whatsapp send app </h3>
+            <h6>add number without space like 17272912606 not <strike>+1 (727) 2912606 </strike></h6>
+  <input id="number" type="numric" placeholder="phone 966506666666" >
+   <input id="name" type="text" placeholder="name" >
+   <input id="msg" type="text" placeholder="type msg" >
+<button onclick="send_handle()">send</button>
